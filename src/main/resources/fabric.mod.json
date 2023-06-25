@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "map_shirts",
+  "version": "${version}",
+  "name": "MapShirts",
+  "description": "A mod that lets player where armor with maps on them. ",
+  "authors": [
+    "CyborgPigeon"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/map_shirts/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.hyper_pigeon.map_shirts.client.MapShirtsClient"
+    ],
+    "main": [
+      "net.hyper_pigeon.map_shirts.MapShirts"
+    ]
+  },
+  "mixins": [
+    "map_shirts.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "1.20"
+  }
+}
