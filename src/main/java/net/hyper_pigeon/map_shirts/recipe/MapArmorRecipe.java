@@ -77,7 +77,7 @@ public class MapArmorRecipe extends SpecialCraftingRecipe {
 
         if(!mapStack.equals(ItemStack.EMPTY) && !armorStack.equals(ItemStack.EMPTY)){
             int mapId = FilledMapItem.getMapId(mapStack);
-            armorStack.getOrCreateNbt().putInt("mapId",mapId+1);
+            armorStack.getOrCreateNbt().putInt("mapId",mapId);
         }
 
         return armorStack;
