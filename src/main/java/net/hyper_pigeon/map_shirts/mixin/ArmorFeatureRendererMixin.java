@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.hyper_pigeon.map_shirts.networking.MapShirtsNetworkingConstants;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -38,13 +40,28 @@ public class ArmorFeatureRendererMixin {
                 MapState mapState = FilledMapItem.getMapState(mapID, entity.getWorld());
 
                 if(mapState != null) {
-                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180.0F));
-//                    matrices.scale(0.003F, 0.003F, 0.003F);
-                    matrices.scale(0.005F*entity.getWidth(),0.001667F*entity.getHeight(),0.005F*entity.getWidth());
+
+                    if (entity instanceof ClientPlayerEntity player && player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
+                        matrices.translate(0.0F, 0.2F, 0.0F);
+                        matrices.multiply(RotationAxis.POSITIVE_X.rotation(model.body.pitch));
+                    }
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotation(model.body.yaw));
+                    matrices.translate(-0.185F, 0.2F, -0.20F);
+                    matrices.scale(0.003F, 0.003F, 0.003F);
+
+//                    if (entity instanceof ClientPlayerEntity player && player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
+//                        matrices.translate(0.0F, 0.2F, 0.0F);
+//                        matrices.multiply(RotationAxis.POSITIVE_X.rotation(model.body.pitch));
+//                    }
+
+//                    matrices.multiply(RotationAxis.POSITIVE_Y.rotation(model.body.yaw));
+//                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180F));
+//
+////                    matrices.scale(0.005F*entity.getWidth(),0.001667F*entity.getHeight(),0.005F*entity.getWidth());
 //                    matrices.translate(-64.0F, -200.0F, 0.0F);
-                    matrices.translate(-106.667*entity.getWidth(),-111.11*entity.getHeight(),0.0F);
+////                    matrices.translate(-106.667*entity.getWidth(),-111.11*entity.getHeight(),0.0F);
 //                    matrices.translate(0.0F, 0.0F, -80.0F);
-                    matrices.translate(0.0F, 0.0F, -133.33F*entity.getWidth());
+////                    matrices.translate(0.0F, 0.0F, -180.00F*entity.getWidth());
                     MinecraftClient.getInstance()
                             .gameRenderer
                             .getMapRenderer()
@@ -60,4 +77,5 @@ public class ArmorFeatureRendererMixin {
 
         }
     }
+
 }
