@@ -1,5 +1,6 @@
 package net.hyper_pigeon.map_shirts.recipe;
 
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.hyper_pigeon.map_shirts.MapShirts;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.inventory.RecipeInputInventory;
