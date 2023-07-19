@@ -48,10 +48,5 @@ public class MapShirts implements ModInitializer {
             });
         }));
 
-        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
-            if(stack.getItem() instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.getOrCreateNbt().contains("mapId")) {
-                lines.add(Text.of("Glued to Map #" + stack.getOrCreateNbt().get("mapId")));
-            }
-        });
     }
 }

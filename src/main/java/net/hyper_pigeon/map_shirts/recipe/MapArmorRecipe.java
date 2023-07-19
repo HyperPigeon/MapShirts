@@ -1,13 +1,12 @@
 package net.hyper_pigeon.map_shirts.recipe;
 
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.hyper_pigeon.map_shirts.MapShirts;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.inventory.RecipeInputInventory;
-import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.nbt.NbtString;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.FilledMapItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
