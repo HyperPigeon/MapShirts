@@ -26,8 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ArmorFeatureRenderer.class)
 public class ArmorFeatureRendererMixin {
 
-    private MapState armorMapState;
-
     @Inject(method = "renderArmor", at = @At("TAIL"))
     private void renderMap(MatrixStack matrices, VertexConsumerProvider vertexConsumers, LivingEntity entity, EquipmentSlot armorSlot, int light, BipedEntityModel model, CallbackInfo ci){
         ItemStack itemStack = entity.getEquippedStack(armorSlot);

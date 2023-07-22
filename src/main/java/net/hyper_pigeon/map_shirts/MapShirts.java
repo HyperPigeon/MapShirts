@@ -1,13 +1,10 @@
 package net.hyper_pigeon.map_shirts;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.hyper_pigeon.map_shirts.networking.MapShirtsNetworkingConstants;
 import net.hyper_pigeon.map_shirts.recipe.MapArmorRecipe;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.map.MapState;
 import net.minecraft.nbt.NbtCompound;
@@ -16,8 +13,6 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class MapShirts implements ModInitializer {
