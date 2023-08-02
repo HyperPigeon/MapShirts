@@ -46,19 +46,6 @@ public class ArmorFeatureRendererMixin {
                     matrices.translate(-0.185F, 0.2F, -0.20F);
                     matrices.scale(0.003F, 0.003F, 0.003F);
 
-//                    if (entity instanceof ClientPlayerEntity player && player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
-//                        matrices.translate(0.0F, 0.2F, 0.0F);
-//                        matrices.multiply(RotationAxis.POSITIVE_X.rotation(model.body.pitch));
-//                    }
-
-//                    matrices.multiply(RotationAxis.POSITIVE_Y.rotation(model.body.yaw));
-//                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180F));
-//
-////                    matrices.scale(0.005F*entity.getWidth(),0.001667F*entity.getHeight(),0.005F*entity.getWidth());
-//                    matrices.translate(-64.0F, -200.0F, 0.0F);
-////                    matrices.translate(-106.667*entity.getWidth(),-111.11*entity.getHeight(),0.0F);
-//                    matrices.translate(0.0F, 0.0F, -80.0F);
-////                    matrices.translate(0.0F, 0.0F, -180.00F*entity.getWidth());
                     MinecraftClient.getInstance()
                             .gameRenderer
                             .getMapRenderer()
