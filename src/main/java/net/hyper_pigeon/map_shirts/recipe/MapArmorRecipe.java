@@ -7,6 +7,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.map.MapState;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
@@ -79,8 +80,14 @@ public class MapArmorRecipe extends SpecialCraftingRecipe {
         }
 
         if(!mapStack.equals(ItemStack.EMPTY) && !armorStack.equals(ItemStack.EMPTY)){
+
             int mapId = FilledMapItem.getMapId(mapStack);
+
+            armorStack.getOrCreateNbt().putBoolean("IsMapShirt", true);
             armorStack.getOrCreateNbt().putInt("mapId",mapId);
+
+
+
         }
 
         return armorStack;
