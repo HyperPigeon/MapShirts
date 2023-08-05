@@ -31,6 +31,7 @@ public class ArmorFeatureRendererMixin {
                 int mapID = itemStack.getNbt().getInt("mapId");
                 MapState mapState = MapState.fromNbt(itemStack.getSubNbt("mapState"));
 
+                matrices.push();
                 if (entity instanceof ClientPlayerEntity player && player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
                     matrices.translate(0.0F, 0.2F, 0.0F);
                     matrices.multiply(RotationAxis.POSITIVE_X.rotation(model.body.pitch));
@@ -44,28 +45,9 @@ public class ArmorFeatureRendererMixin {
                         .getMapRenderer()
                         .draw(matrices, vertexConsumers, mapID, mapState, true, light);
 
-//                if(mapState != null) {
-//
-//                    if (entity instanceof ClientPlayerEntity player && player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
-//                        matrices.translate(0.0F, 0.2F, 0.0F);
-//                        matrices.multiply(RotationAxis.POSITIVE_X.rotation(model.body.pitch));
-//                    }
-//                    matrices.multiply(RotationAxis.POSITIVE_Y.rotation(model.body.yaw));
-//                    matrices.translate(-0.185F, 0.2F, -0.20F);
-//                    matrices.scale(0.003F, 0.003F, 0.003F);
-//
-//                    MinecraftClient.getInstance()
-//                            .gameRenderer
-//                            .getMapRenderer()
-//                            .draw(matrices, vertexConsumers, 1, mapState, true, light);
-//                }
-//                else {
-//                    PacketByteBuf buf = PacketByteBufs.create();
-//                    buf.writeInt(mapID);
-//                    ClientPlayNetworking.send(MapShirtsNetworkingConstants.GET_MAP_STATE, buf);
-//                }
-            }
+                matrices.pop();
 
+            }
 
         }
     }
