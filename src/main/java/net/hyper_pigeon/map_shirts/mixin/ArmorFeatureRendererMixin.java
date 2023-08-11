@@ -25,7 +25,7 @@ public class ArmorFeatureRendererMixin {
     private void renderMap(MatrixStack matrices, VertexConsumerProvider vertexConsumers, LivingEntity entity, EquipmentSlot armorSlot, int light, BipedEntityModel model, CallbackInfo ci){
         ItemStack itemStack = entity.getEquippedStack(armorSlot);
         Item bl = itemStack.getItem();
-        if (bl instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST) {
+        if (bl instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && MinecraftClient.getInstance().player.distanceTo(entity) < 20) {
             if(itemStack.hasNbt() && itemStack.getNbt().contains("mapId") && itemStack.getNbt().contains("mapState")) {
 
                 int mapID = itemStack.getNbt().getInt("mapId");
