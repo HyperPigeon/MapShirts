@@ -22,7 +22,7 @@ public class CraftingScreenHandlerMixin {
 
     @Inject(method = "updateResult", at = @At(value = "INVOKE",target = "net/minecraft/inventory/CraftingResultInventory.setStack (ILnet/minecraft/item/ItemStack;)V", shift = At.Shift.BEFORE), locals = LocalCapture.CAPTURE_FAILSOFT)
     private static void updateArmorResult(ScreenHandler handler, World world, PlayerEntity player, RecipeInputInventory craftingInventory, CraftingResultInventory resultInventory, CallbackInfo ci, ServerPlayerEntity serverPlayerEntity, ItemStack itemStack){
-        if (itemStack.getOrCreateNbt().contains("IsMapShirt") && itemStack.getOrCreateNbt().contains("mapId")){
+        if (itemStack.hasNbt() && itemStack.getNbt().contains("mapId") && itemStack.getNbt().contains("mapState")){
             MapState mapState = FilledMapItem.getMapState(itemStack.getOrCreateNbt().getInt("mapId"),world);
 
             NbtCompound nbtCompound = new NbtCompound();
